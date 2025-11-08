@@ -1,40 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
-import { GraduationCap } from 'lucide-react';
+import { Utensils } from 'lucide-react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const { login } = useAuth();
+  const [password, setPassword] = useState('');
+  const { login, user } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email) {
-      toast.error('Please enter your email');
+    if (!email || !password) {
+      toast.error('Please fill in all fields');
       return;
     }
 
-    const storedUser = localStorage.getItem('user');
-    if (!storedUser) {
-      toast.error('No account found. Please sign up first!');
-      return;
+    const result = await login(email, password);
+    
+    if (result.success) {
+      toast.success('Welcome back! 🍛');
+      navigate('/');
+    } else {
+      toast.error(result.error || 'Login failed');
     }
-
-    const userData = JSON.parse(storedUser);
-    if (userData.email !== email) {
-      toast.error('Email not found. Please check your email or sign up.');
-      return;
-    }
-
-    login(email);
-    toast.success(`Welcome back, ${userData.name}!`);
-    navigate('/');
   };
 
   return (
@@ -42,13 +42,13 @@ const Login = () => {
       <Card className="w-full max-w-md shadow-hover">
         <CardHeader className="text-center">
           <div className="bg-gradient-primary w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <GraduationCap className="h-8 w-8 text-white" />
+            <Utensils className="h-8 w-8 text-primary-foreground" />
           </div>
           <CardTitle className="text-3xl font-bold bg-gradient-hero bg-clip-text text-transparent">
             Welcome Back
           </CardTitle>
           <CardDescription className="text-base">
-            Enter your email to access your account
+            Login to order delicious South Indian food
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -63,6 +63,20 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your.email@example.com"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="password" className="text-sm font-medium">
+                Password
+              </label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
                 required
               />
             </div>

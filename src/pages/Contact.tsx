@@ -24,7 +24,7 @@ const Contact = () => {
     }
 
     // Simulate form submission
-    toast.success('Message sent! We\'ll get back to you soon.');
+    toast.success(`Thanks for reaching out, ${formData.name}! We'll get back to you.`);
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -41,7 +41,7 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p className="text-muted-foreground text-lg">
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              Have questions about our menu or want to share feedback? We'd love to hear from you!
             </p>
           </div>
 
@@ -52,7 +52,7 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="font-semibold mb-2">Email Us</h3>
-                <p className="text-sm text-muted-foreground">support@codelearn.com</p>
+                <p className="text-sm text-muted-foreground">hello@madrasdinefine.com</p>
               </CardContent>
             </Card>
 

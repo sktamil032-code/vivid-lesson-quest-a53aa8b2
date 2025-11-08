@@ -6,16 +6,22 @@ interface NavLinkCompatProps extends Omit<NavLinkProps, "className"> {
   className?: string;
   activeClassName?: string;
   pendingClassName?: string;
+  mobile?: boolean;
 }
 
 const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
-  ({ className, activeClassName, pendingClassName, to, ...props }, ref) => {
+  ({ className, activeClassName, pendingClassName, mobile, to, ...props }, ref) => {
     return (
       <RouterNavLink
         ref={ref}
         to={to}
         className={({ isActive, isPending }) =>
-          cn(className, isActive && activeClassName, isPending && pendingClassName)
+          cn(
+            mobile ? "block px-4 py-2 rounded-lg transition-colors hover:bg-muted" : "text-sm font-medium transition-colors hover:text-primary",
+            className, 
+            isActive && (mobile ? "bg-primary text-primary-foreground" : "text-primary"), 
+            isPending && pendingClassName
+          )
         }
         {...props}
       />

@@ -1,102 +1,121 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Target, Users, Lightbulb, Heart } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Heart, Users, Award, ChefHat } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-hero bg-clip-text text-transparent">
-              About CodeLearn
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              Empowering the next generation of developers through accessible, high-quality programming education
+    <div className="min-h-screen">
+      {/* Hero Section with Background Image */}
+      <div 
+        className="relative h-96 bg-cover bg-center flex items-center justify-center"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&h=400&fit=crop)',
+        }}
+      >
+        <div className="text-center text-white z-10">
+          <h1 className="text-6xl font-bold mb-4">
+            About MADRAS DINE FINE
+          </h1>
+          <p className="text-2xl">
+            Our passion: vibrant South Indian flavours online
+          </p>
+        </div>
+      </div>
+
+      <div className="container mx-auto max-w-4xl px-4 py-16">
+        <Card className="mb-8 shadow-hover">
+          <CardContent className="pt-6">
+            <p className="text-lg leading-relaxed text-foreground mb-6">
+              Welcome to MADRAS DINE FINE, where we bring the authentic taste of South India straight 
+              to your table. Our journey began with a simple mission: to share the rich culinary heritage 
+              of Madras (Chennai) and South India with food lovers everywhere.
             </p>
-          </div>
-
-          <div className="prose prose-lg max-w-none mb-12">
-            <p className="text-muted-foreground leading-relaxed">
-              CodeLearn was founded with a simple mission: make programming education accessible, engaging, and effective for everyone. We believe that anyone can learn to code with the right guidance and resources.
+            <p className="text-lg leading-relaxed text-foreground mb-6">
+              Every dish we serve is prepared with love, using traditional recipes that have been passed 
+              down through generations. From the crispy perfection of our masala dosas to the aromatic 
+              richness of our biryanis, each bite tells a story of culture, tradition, and passion.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Our platform offers carefully crafted courses in Java, C++, C, and Python, designed to take you from beginner to confident programmer. Each course includes hands-on projects, clear explanations, and practical examples that prepare you for real-world development.
+            <p className="text-lg leading-relaxed text-foreground">
+              We believe that great food brings people together. Whether you're craving comfort food or 
+              looking to explore new flavors, MADRAS DINE FINE is here to deliver an unforgettable 
+              dining experience, one order at a time.
             </p>
-          </div>
+          </CardContent>
+        </Card>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <Card className="border-2 hover:shadow-hover transition-shadow">
-              <CardContent className="p-6">
-                <div className="bg-gradient-primary w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Target className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Our Mission</h3>
-                <p className="text-muted-foreground">
-                  To democratize programming education and empower individuals to build the future through code.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:shadow-hover transition-shadow">
-              <CardContent className="p-6">
-                <div className="bg-gradient-accent w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Lightbulb className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Our Vision</h3>
-                <p className="text-muted-foreground">
-                  A world where quality programming education is accessible to everyone, regardless of background.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:shadow-hover transition-shadow">
-              <CardContent className="p-6">
-                <div className="bg-gradient-secondary w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Community Focused</h3>
-                <p className="text-muted-foreground">
-                  We're building a supportive community of learners who help each other grow and succeed.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:shadow-hover transition-shadow">
-              <CardContent className="p-6">
-                <div className="bg-gradient-success w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Passion Driven</h3>
-                <p className="text-muted-foreground">
-                  Created by developers who love teaching and are dedicated to student success.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="bg-gradient-hero text-white border-0">
-            <CardContent className="p-8 text-center">
-              <h2 className="text-3xl font-bold mb-4">Join Our Learning Community</h2>
-              <p className="text-white/90 text-lg mb-6">
-                Start your coding journey today and become part of a thriving community of developers
-              </p>
-              <div className="flex flex-wrap gap-8 justify-center text-left">
-                <div>
-                  <div className="text-4xl font-bold mb-1">10,000+</div>
-                  <div className="text-white/80">Active Students</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold mb-1">4</div>
-                  <div className="text-white/80">Programming Languages</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold mb-1">12</div>
-                  <div className="text-white/80">Total Lessons</div>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <Card className="shadow-hover hover:-translate-y-1 transition-all duration-300">
+            <CardHeader>
+              <div className="bg-gradient-primary w-12 h-12 rounded-xl flex items-center justify-center mb-3">
+                <ChefHat className="h-6 w-6 text-primary-foreground" />
               </div>
+              <CardTitle>Expert Chefs</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                Our experienced chefs bring authentic South Indian cooking techniques and family 
+                recipes to every dish we prepare.
+              </CardDescription>
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-hover hover:-translate-y-1 transition-all duration-300">
+            <CardHeader>
+              <div className="bg-gradient-accent w-12 h-12 rounded-xl flex items-center justify-center mb-3">
+                <Heart className="h-6 w-6 text-accent-foreground" />
+              </div>
+              <CardTitle>Made with Love</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                Every dish is prepared with care and attention to detail, ensuring the perfect 
+                balance of flavors in every bite.
+              </CardDescription>
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-hover hover:-translate-y-1 transition-all duration-300">
+            <CardHeader>
+              <div className="bg-gradient-secondary w-12 h-12 rounded-xl flex items-center justify-center mb-3">
+                <Award className="h-6 w-6 text-secondary-foreground" />
+              </div>
+              <CardTitle>Quality Ingredients</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                We source only the freshest, highest-quality ingredients to create dishes that 
+                are both delicious and nutritious.
+              </CardDescription>
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-hover hover:-translate-y-1 transition-all duration-300">
+            <CardHeader>
+              <div className="bg-gradient-success w-12 h-12 rounded-xl flex items-center justify-center mb-3">
+                <Users className="h-6 w-6 text-success-foreground" />
+              </div>
+              <CardTitle>Community Focused</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                We're proud to serve our community and bring people together through the universal 
+                language of great food.
+              </CardDescription>
             </CardContent>
           </Card>
         </div>
+
+        <Card className="bg-gradient-primary text-primary-foreground">
+          <CardHeader>
+            <CardTitle className="text-2xl">Experience South India on Your Plate</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-lg">
+              Join us on this flavorful journey and discover why MADRAS DINE FINE has become 
+              the go-to destination for authentic South Indian cuisine. Order now and taste 
+              the difference tradition makes!
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -25,8 +25,8 @@ const Cart = () => {
       return;
     }
 
-    // Navigate to payments page
-    navigate('/payments');
+    toast.success(`Thank you for your order, ${user?.name}! We'll send you a confirmation to ${user?.email}.`);
+    clearCart();
 
     // Simulate food preparation time (30 seconds)
     setTimeout(() => {
@@ -167,7 +167,7 @@ const Cart = () => {
                   size="lg"
                   className="w-full bg-background text-foreground hover:bg-background/90"
                 >
-                  Proceed to Payment
+                  Place Order
                 </Button>
               </CardFooter>
             </Card>
